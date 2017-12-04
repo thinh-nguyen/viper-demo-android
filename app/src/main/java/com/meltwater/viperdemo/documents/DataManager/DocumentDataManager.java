@@ -1,22 +1,12 @@
 package com.meltwater.viperdemo.documents.DataManager;
 
 import com.meltwater.viperdemo.documents.DocumentListContract;
-import com.meltwater.viperdemo.documents.entity.DocQuery;
-import com.meltwater.viperdemo.documents.entity.DocumentModel;
-import com.meltwater.viperdemo.documents.entity.DocumentsPage;
+import com.meltwater.viperdemo.documents.entity.DocumentsPageModel;
 
-import android.app.DownloadManager;
 import android.util.Log;
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.util.HashMap;
-import java.util.Map;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -45,17 +35,17 @@ public class DocumentDataManager implements DocumentListContract.DataManagerInpu
         this.interactor = interactor;
     }
     @Override
-    public void retrieveDocuments(DocQuery payload) {
+    public void retrieveDocuments(HashMap<String, Object> payload) {
 
         // Callback
-        Callback<DocumentsPage> callback = new Callback<DocumentsPage>() {
+        Callback<DocumentsPageModel> callback = new Callback<DocumentsPageModel>() {
             @Override
-            public void onResponse(Call<DocumentsPage> call, retrofit2.Response<DocumentsPage> response) {
+            public void onResponse(Call<DocumentsPageModel> call, retrofit2.Response<DocumentsPageModel> response) {
                 interactor.didRetrieveDocuments(response.body().getDocuments());
             }
 
             @Override
-            public void onFailure(Call<DocumentsPage> call, Throwable t) {
+            public void onFailure(Call<DocumentsPageModel> call, Throwable t) {
                 interactor.onError(t.getMessage());
             }
         };
@@ -85,7 +75,7 @@ public class DocumentDataManager implements DocumentListContract.DataManagerInpu
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(client)
                     .build();
-            retrofit.create(DocQuery.class)
+            retrofit.create(DocServiceApi.class)
                     .getDocuments(token, 5, "us", 20, 0, "2017-11-07T20:00:19.028Z", "DESC",
                             "close", "2017-11-02T19:01:49.000Z", "2102541", 0, "date", "images")
                     .enqueue(callback);

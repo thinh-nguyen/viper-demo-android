@@ -2,8 +2,9 @@ package com.meltwater.viperdemo.documents;
 
 import com.meltwater.viperdemo.documents.entity.DocumentModel;
 import com.meltwater.viperdemo.documents.entity.DocumentUIModel;
-import com.meltwater.viperdemo.documents.entity.DocQuery;
+import com.meltwater.viperdemo.documents.DataManager.DocServiceApi;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -16,7 +17,7 @@ public interface DocumentListContract {
 
         /* NOTE that the component on the right must implement this protocol, in this case it's the activity */
         /* Presenter -> View */
-        void showDocuments(List<DocumentUIModel> UIDocuments);
+        void showDocuments(List<DocumentUIModel> documentsUIModels);
     }
 
     interface Presenter {
@@ -26,7 +27,7 @@ public interface DocumentListContract {
 
     interface InteractorInput {
        /* Presenter -> Interactor -- ask */
-        void retrieveDocuments(DocQuery query);
+        void retrieveDocuments(HashMap<String, Object> query);
     }
 
     interface InteractorOutput {
@@ -46,7 +47,7 @@ public interface DocumentListContract {
     interface DataManagerInput {
 
         /* Interator -> DataManager */
-        void retrieveDocuments(DocQuery payload);
+        void retrieveDocuments(HashMap<String, Object> query);
     }
 
     interface DataManagerOutput {

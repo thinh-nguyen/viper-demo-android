@@ -6,6 +6,7 @@ package com.meltwater.viperdemo.documents.entity;
 
 public class DocumentUIModel {
 
+    private String documentId;
     private String displayTitle;
     private String displayMatchSentence;
     private String displayUrl;
@@ -15,7 +16,15 @@ public class DocumentUIModel {
         displayTitle = rawDocument.getTitle();
         displayMatchSentence = rawDocument.getMatchSentence();
         displayUrl = rawDocument.getUrl();
+        documentId = rawDocument.getDocumentId();
+    }
 
+    public String getDocumentId() {
+        return documentId;
+    }
+
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
     }
 
     public String getDisplayTitle() {

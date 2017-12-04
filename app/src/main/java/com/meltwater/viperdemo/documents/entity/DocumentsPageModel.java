@@ -6,7 +6,7 @@ import java.util.List;
  * Created by thinhnguyen on 12/3/17.
  */
 
-public class DocumentsPage {
+public class DocumentsPageModel {
 
     private Integer count;
     private List<DocumentModel> documents;

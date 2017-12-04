@@ -2,10 +2,10 @@ package com.meltwater.viperdemo.documents.interactor;
 
 import com.meltwater.viperdemo.documents.DataManager.DocumentDataManager;
 import com.meltwater.viperdemo.documents.DocumentListContract;
-import com.meltwater.viperdemo.documents.entity.DocQuery;
+import com.meltwater.viperdemo.documents.DataManager.DocServiceApi;
 import com.meltwater.viperdemo.documents.entity.DocumentModel;
-import com.meltwater.viperdemo.documents.presenter.DocumentListPresenter;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -23,7 +23,7 @@ public class DocumentListInteractor implements DocumentListContract.InteractorIn
     }
 
     @Override
-    public void retrieveDocuments(DocQuery query) {
+    public void retrieveDocuments(HashMap<String, Object> query) {
         dataManager.retrieveDocuments(query);
     }
 
