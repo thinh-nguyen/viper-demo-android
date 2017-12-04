@@ -12,7 +12,7 @@ import java.util.List;
 
 public class DocumentListActivity extends AppCompatActivity implements DocumentListContract.View {
 
-    DocumentListContract.Presenter presenter;
+    private DocumentListContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

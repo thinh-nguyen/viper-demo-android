@@ -1,6 +1,5 @@
 package com.meltwater.viperdemo.documents.presenter;
 
-import android.provider.DocumentsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
@@ -15,15 +14,16 @@ import java.util.List;
 
 /**
  * Created by thinhnguyen on 12/3/17.
+ * Demp
  */
 
 public class DocumentListPresenter implements DocumentListContract.Presenter, DocumentListContract.InteractorOutput {
 
-    DocumentListContract.View view;
-    DocumentListContract.InteractorInput interactor;
-    DocumentListContract.Router router;
+    private DocumentListContract.View view;
+    private DocumentListContract.InteractorInput interactor;
+    private DocumentListContract.Router router;
 
-    List<DocumentUIModel> documentUIModelList = new ArrayList<>();
+    private List<DocumentUIModel> documentUIModelList = new ArrayList<>();
 
     public DocumentListPresenter(DocumentListContract.View view) {
         this.view = view;
