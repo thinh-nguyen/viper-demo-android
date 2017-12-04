@@ -46,7 +46,7 @@ public interface DocumentListContract {
     interface DataManagerInput {
 
         /* Interator -> DataManager */
-        void retrieveDocumets(DocQuery payload);
+        void retrieveDocuments(DocQuery payload);
     }
 
     interface DataManagerOutput {
