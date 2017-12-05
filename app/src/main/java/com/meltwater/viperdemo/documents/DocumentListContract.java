@@ -12,13 +12,6 @@ import java.util.List;
 
 public interface DocumentListContract {
 
-    interface View {
-
-        /* NOTE that the component on the right must implement this protocol, in this case it's the activity */
-        /* Presenter -> View */
-        void showDocuments(List<DocumentUIModel> UIDocuments);
-    }
-
     interface Presenter {
         /* View -> Presenter */
         void presentDocuments(); //  Ask interactor to retrieve documents and tell view to show

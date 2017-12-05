@@ -12,8 +12,6 @@ import java.util.List;
 
 public class DocumentListInteractor implements DocumentListContract.InteractorInput, DocumentListContract.DataManagerOutput {
 
-    DocumentListContract.InteractorOutput presenter;
-
     @Override
     public void retrieveDocuments(DocQuery query) {
 

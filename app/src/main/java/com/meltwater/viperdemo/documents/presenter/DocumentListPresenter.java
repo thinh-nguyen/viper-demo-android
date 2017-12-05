@@ -1,9 +1,12 @@
 package com.meltwater.viperdemo.documents.presenter;
 
-import android.provider.DocumentsContract;
+import android.support.v7.app.AppCompatActivity;
 
 import com.meltwater.viperdemo.documents.DocumentListContract;
 import com.meltwater.viperdemo.documents.entity.DocumentModel;
+import com.meltwater.viperdemo.documents.interactor.DocumentListInteractor;
+import com.meltwater.viperdemo.documents.router.DocumentListRouter;
+import com.meltwater.viperdemo.documents.view.BaseViperView;
 
 import java.util.List;
 
@@ -11,19 +14,12 @@ import java.util.List;
  * Created by thinhnguyen on 12/3/17.
  */
 
-public class DocumentListPresenter implements DocumentListContract.Presenter, DocumentListContract.InteractorOutput {
+public class DocumentListPresenter extends BasePresenter<BaseViperView>  implements DocumentListContract.Presenter, DocumentListContract.InteractorOutput {
 
-    DocumentListContract.View view;
-    DocumentListContract.InteractorInput interactor;
-    DocumentListContract.Router router;
+    private DocumentListInteractor interactor;
 
-    public DocumentListPresenter(DocumentListContract.View view, DocumentListContract.InteractorInput interactor,
-                                 DocumentListContract.Router router ) {
-
-        this.view = view;
-        this.interactor = interactor;
-        this.router = router;
-
+    public DocumentListPresenter() {
+        interactor = new DocumentListInteractor();
     }
 
     @Override // DocumentListInteractorOutputProtocol

@@ -1,6 +1,7 @@
 package com.meltwater.viperdemo.documents.router;
 
 import com.meltwater.viperdemo.documents.DocumentListContract;
+import com.meltwater.viperdemo.documents.UI.BaseActivity;
 import com.meltwater.viperdemo.documents.entity.DocumentUIModel;
 
 /**
@@ -8,6 +9,12 @@ import com.meltwater.viperdemo.documents.entity.DocumentUIModel;
  */
 
 public class DocumentListRouter implements DocumentListContract.Router {
+
+    private BaseActivity view;
+
+    public DocumentListRouter(BaseActivity view) {
+        this.view = view;
+    }
 
     @Override
     public void routeToDocumentScreen(DocumentUIModel documentUIModel) {
