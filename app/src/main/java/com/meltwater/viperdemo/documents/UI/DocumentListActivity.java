@@ -16,6 +16,16 @@ public class DocumentListActivity extends BaseActivity<BaseViperView, DocumentLi
         setContentView(R.layout.activity_document_list);
     }
 
+    @Override
+    protected void onPresenterPrepared(@NonNull DocumentListPresenter presenter) {
+
+    }
+
+    @Override
+    protected int loaderId() {
+        return 1;
+    }
+
     @NonNull
     @Override
     public DocumentListPresenter createPresenter() {
